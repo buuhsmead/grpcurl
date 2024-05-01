@@ -88,10 +88,6 @@ spec:
             value: "./Containefile"
         workspaces:
           - name: source
-        securityContext:
-          runAsNonRoot: true
-          runAsUser: 1000
-          privileged: false
 
   workspaces:
   - name: source
