@@ -13,7 +13,10 @@ metadata:
 
     # Fetch the git-clone task from hub, we are able to reference later on it
     # with taskRef and it will automatically be embedded into our pipeline.
-    pipelinesascode.tekton.dev/task: "git-clone"
+    #
+    # NO we only use provided ClusterTasks in OpenShift Pipelines
+    #
+#    pipelinesascode.tekton.dev/task: "git-clone"
 
     # Use maven task from hub
     #
@@ -47,6 +50,7 @@ spec:
       - name: fetch-repository
         taskRef:
           name: git-clone
+          kind: ClusterTask
         workspaces:
           - name: output
             workspace: source
