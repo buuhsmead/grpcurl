@@ -24,7 +24,7 @@ metadata:
     #
     # pipelinesascode.tekton.dev/task-2: "[curl, buildah]"
 
-    pipelinesascode.tekton.dev/task-1: "buildah"
+#    pipelinesascode.tekton.dev/task-1: "buildah"
 
     # How many runs we want to keep.
     pipelinesascode.tekton.dev/max-keep-runs: "5"
@@ -77,10 +77,11 @@ spec:
                 exit 0
 
       - name: build-image
-        securityContext:
-          runAsUser: 1000
+#        securityContext:
+#          runAsUser: 1000
         taskRef:
           name: buildah
+          kind: ClusterTask
         runAfter:
             - fetch-repository
         params:
