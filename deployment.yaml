@@ -35,7 +35,7 @@ spec:
               protocol: TCP
           imagePullPolicy: Always
           terminationMessagePolicy: File
-          image: quay.io/hdaems/ubi8-grpcurl:latest
+          image: ubi8-grpcurl:latest
           args:
             - while true; do sleep 30; done;
       restartPolicy: Always
