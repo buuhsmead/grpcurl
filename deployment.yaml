@@ -40,4 +40,3 @@ spec:
             - while true; do sleep 30; done;
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
-
