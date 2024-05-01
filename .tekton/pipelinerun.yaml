@@ -106,7 +106,6 @@ spec:
                 printf "%s:%s" $(params.IMAGE_URL) $(params.IMAGE_DIGEST) | tee $(results.image_and_sha.path)
                 exit 0
 
-
   workspaces:
   - name: source
     volumeClaimTemplate:
