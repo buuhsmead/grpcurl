@@ -77,8 +77,6 @@ spec:
                 exit 0
 
       - name: build-image
-#        securityContext:
-#          runAsUser: 1000
         taskRef:
           name: buildah
           kind: ClusterTask
@@ -88,7 +86,7 @@ spec:
           - name: IMAGE
             value: image-registry.openshift-image-registry.svc:5000/$(context.pipelineRun.namespace)/grpcurl
           - name: DOCKERFILE
-            value: "./Containefile"
+            value: "./Containerfile"
         workspaces:
           - name: source
 
