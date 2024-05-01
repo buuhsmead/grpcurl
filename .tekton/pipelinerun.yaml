@@ -77,7 +77,8 @@ spec:
                 exit 0
 
       - name: build-image
-        serviceAccountName: pipeline
+        securityContext:
+          runAsUser: 1000
         taskRef:
           name: buildah
         runAfter:
