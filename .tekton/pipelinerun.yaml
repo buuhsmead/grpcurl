@@ -90,7 +90,8 @@ spec:
           - name: source
         securityContext:
           runAsNonRoot: true
-          runAsUser: 65532
+          runAsUser: 1000
+          privileged: false
 
   workspaces:
   - name: source
