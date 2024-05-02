@@ -121,7 +121,7 @@ spec:
           - name: srcTLSverify
             value: 'false'
           - name: destImageURL
-            value: docker://quay.io/hdaems/ubi8-grpcurl:v1.87.1
+            value: docker://quay.io/hdaems/ubi8-grpcurl:latest
           - name: destTLSverify
             value: 'true'
         workspaces:
@@ -143,3 +143,4 @@ spec:
   - name: basic-auth
     secret:
       secretName: "{{ git_auth_secret }}"
+
