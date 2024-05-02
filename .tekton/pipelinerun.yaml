@@ -106,7 +106,7 @@ spec:
               workingDir: $(workspaces.source.path)
               script: |
                 id="$(params.IMAGE_URL):$(params.IMAGE_DIGEST)"
-                echo "IMG ${id}"
+                echo "IMG [${id}]"
                 echo ${id} | tr -d "\n" | tee $(results.IMAGE_AND_SHA.path)
 
 
