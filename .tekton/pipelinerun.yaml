@@ -101,10 +101,10 @@ spec:
           steps:
             - name: noop-task
               image: registry.access.redhat.com/ubi9/ubi
-              workingDir: $(workspaces.source.path)
               script: |
                 #!/usr/bin/env bash
-                printf 'IMAGE   %s:%s' "$(params.IMAGE_URL)" "$(params.IMAGE_DIGEST)" | tee $(results.IMAGE_AND_SHA.path)
+                set -e -o pipefail
+                printf 'IMAGE  %s:%s' $(params.IMAGE_URL) $(params.IMAGE_DIGEST) | tee $(results.IMAGE_AND_SHA.path)
                 # exit 0
 
   workspaces:
