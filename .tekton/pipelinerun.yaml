@@ -116,7 +116,8 @@ spec:
           kind: ClusterTask
         params:
           - name: srcImageURL
-            value: docker://$(tasks.build-image.results.IMAGE_URL):lastest
+#            value: docker://$(tasks.build-image.results.IMAGE_URL):latest
+            value: docker://image-registry.openshift-image-registry.svc:5000/grpcurl-pipelines/ubi8-grpcurl:latest
           - name: srcTLSverify
             value: 'false'
           - name: destImageURL
