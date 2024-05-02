@@ -94,6 +94,7 @@ spec:
             value: $(tasks.build-image.results.IMAGE_DIGEST)
         results:
           - name: image-and-sha
+            type: string
             description: The image and the sha as one
         taskSpec:
           workspaces:
@@ -104,7 +105,7 @@ spec:
               workingDir: $(workspaces.source.path)
               script: |
                 #!/usr/bin/env bash
-                printf "IMAGE %s:%s" "URL" "DIGEST" | tee $(results.image-and-sha.path)
+                echo -n "IMAGE %s:%s" "URL" "DIGEST" | tee $(results.image-and-sha.path)
                 # exit 0
 
   workspaces:
