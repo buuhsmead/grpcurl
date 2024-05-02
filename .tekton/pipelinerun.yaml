@@ -105,7 +105,7 @@ spec:
               workingDir: $(workspaces.source.path)
               script: |
                 #!/usr/bin/env bash
-                echo -n "IMAGE %s:%s" "URL" "DIGEST" | tee $(results.image-and-sha.path)
+                echo -n "IMAGE %s:%s" "URL" "DIGEST"
                 # exit 0
 
   workspaces:
