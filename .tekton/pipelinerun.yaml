@@ -116,11 +116,11 @@ spec:
           kind: ClusterTask
         params:
           - name: srcImageURL
-            value: docker://$(tasks.build-image.results.IMAGE_URL)
+            value: docker://$(tasks.build-image.results.IMAGE_URL):lastest
           - name: srcTLSverify
             value: 'false'
           - name: destImageURL
-            value: docker://quay.io/hdaems/ubi8-grpcurl
+            value: docker://quay.io/hdaems/ubi8-grpcurl:v1.87.1
           - name: destTLSverify
             value: 'true'
         workspaces:
