@@ -105,8 +105,10 @@ spec:
               image: registry.access.redhat.com/ubi9/ubi
               workingDir: $(workspaces.source.path)
               script: |
-                echo "$(params.IMAGE_URL):$(params.IMAGE_DIGEST)" | tee $(results.IMAGE_AND_SHA.path)
-                echo $(results.IMAGE_AND_SHA)
+                id="$(params.IMAGE_URL):$(params.IMAGE_DIGEST)"
+                echo "IMG ${id}"
+                echo ${id} | tr -d "\n" | tee $(results.IMAGE_AND_SHA.path)
+
 
 
   workspaces:
