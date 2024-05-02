@@ -107,7 +107,7 @@ spec:
               script: |
                 id="$(params.IMAGE_URL):$(params.IMAGE_DIGEST)"
                 #echo "IMG [${id}]"
-                echo ${id} | tr -d "\n" -d " " | tee $(results.IMAGE_AND_SHA.path)
+                echo ${id} | tr -d '[\n\ ]' | tee $(results.IMAGE_AND_SHA.path)
 
 
 
