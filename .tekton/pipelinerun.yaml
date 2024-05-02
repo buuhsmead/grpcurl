@@ -104,7 +104,7 @@ spec:
               script: |
                 #!/usr/bin/env bash
                 set -e -o pipefail
-                printf 'IMAGE  %s:%s' $(params.IMAGE_URL) $(params.IMAGE_DIGEST) | tee $(results.IMAGE_AND_SHA.path)
+                printf 'IMAGE  %s:%s' $(params.IMAGE_URL) $(params.IMAGE_DIGEST) > $(results.IMAGE_AND_SHA.path)
                 # exit 0
 
   workspaces:
