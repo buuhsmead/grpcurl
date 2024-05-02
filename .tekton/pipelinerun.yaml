@@ -116,11 +116,11 @@ spec:
           kind: ClusterTask
         params:
           - name: srcImageURL
-            value: $(tasks.noop-task.results.IMAGE_AND_SHA)
+            value: docker://$(tasks.noop-task.results.IMAGE_AND_SHA)
           - name: srcTLSverify
             value: 'false'
           - name: destImageURL
-            value: quay.io/hdaems/ubi8-grpcurl
+            value: docker://quay.io/hdaems/ubi8-grpcurl
           - name: destTLSverify
             value: 'true'
         workspaces:
