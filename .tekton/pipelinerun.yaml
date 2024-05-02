@@ -74,7 +74,8 @@ spec:
           - name: DOCKERFILE
             value: "./Containerfile"
         workspaces:
-          - name: source
+          - name: images-url
+            workspace: source
 
       # Customize this task if you like, or just do a taskRef
       # to one of the hub task.
@@ -116,13 +117,13 @@ spec:
           - name: srcImageURL
             value: $(tasks.noop-task.results.IMAGE_AND_SHA)
           - name: srcTLSverify
-            value: false
+            value: 'false'
           - name: destImageURL
             value: quay.io/hdaems/ubi8-grpcurl
           - name: destTLSverify
-            value: true
+            value: 'true'
         workspaces:
-          - name: source
+          - name: images-url
 
 
   workspaces:
