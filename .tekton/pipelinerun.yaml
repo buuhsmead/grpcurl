@@ -92,12 +92,12 @@ spec:
           - name: IMAGE_DIGEST
             type: string
             value: $(tasks.build-image.results.IMAGE_DIGEST)
-        results:
-          - name: IMAGE_AND_SHA
-            description: The image and the sha as one
         taskSpec:
           workspaces:
             - name: source
+          results:
+            - name: IMAGE_AND_SHA
+              description: The image and the sha as one
           steps:
             - name: noop-task
               image: registry.access.redhat.com/ubi9/ubi
