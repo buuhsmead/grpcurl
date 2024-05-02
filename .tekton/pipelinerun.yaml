@@ -116,7 +116,7 @@ spec:
           kind: ClusterTask
         params:
           - name: srcImageURL
-            value: docker://$(tasks.noop-task.results.IMAGE_AND_SHA)
+            value: docker://$(tasks.build-image.results.IMAGE_URL)
           - name: srcTLSverify
             value: 'false'
           - name: destImageURL
