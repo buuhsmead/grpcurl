@@ -13,3 +13,40 @@
 Inside the .tekton/pipelinerun.yaml use only the OpenShift Pipeline provided ClusterTasks. I used the buildah task from the Hub and burned a day because of security issues.
 
 
+
+== skopeo
+
+You need a Secret to access the production repository.
+The secret must have an annotation with the url of the production registry
+
+NOTE: For quay.io it is better to create a robot account
+
+[code]
+----
+apiVersion: v1
+kind: Secret
+metadata:
+  name: quay-creds
+  annotations:
+    tekton.dev/docker-0: https://quay.io
+data:
+  .dockerconfigjson: ewogICJhd....H0KfQ==
+type: kubernetes.io/dockerconfigjson
+----
+
+Apply the secret to the NAMESPACE
+
+[code]
+----
+oc apply -f quay-creds.yaml
+----
+
+Link this Secret to the ServiceAccount running the skopeo task
+
+[code]
+----
+oc secret link pipeline quay-creds --for=pull,mount
+----
+
+NOTE: documentation says that the SA (pipeline) should not be altered. Until now no problems. YMMV
+

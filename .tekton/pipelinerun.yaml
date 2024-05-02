@@ -79,8 +79,8 @@ spec:
 
       # Customize this task if you like, or just do a taskRef
       # to one of the hub task.
-      - name: noop-task
-        displayName: Task with no effect
+      - name: cleaning-task
+        displayName: Task with cleaning effect
         runAfter:
           - build-image
         workspaces:
@@ -98,26 +98,26 @@ spec:
             - name: source
               workspace: source
           results:
-            - name: IMAGE_AND_SHA
-              description: The image and the sha as one
+            - name: IMAGE_URL_CLEAN
+              description: The image url is trimmed and no NL
           steps:
             - name: noop-task
               image: registry.access.redhat.com/ubi9/ubi
               workingDir: $(workspaces.source.path)
               script: |
-                id="$(params.IMAGE_URL):$(params.IMAGE_DIGEST)"
-                echo ${id} | tr -d '[\n\ ]' | tee $(results.IMAGE_AND_SHA.path)
+                id="$(params.IMAGE_URL)"
+                echo ${id} | tr -d '[\n\ ]' | tee $(results.IMAGE_URL_CLEAN.path)
 
       - name: release-image
         runAfter:
-          - noop-task
+          - cleaning-task
         taskRef:
           name: skopeo-copy
           kind: ClusterTask
         params:
           - name: srcImageURL
-#            value: docker://$(tasks.build-image.results.IMAGE_URL):latest
-            value: docker://image-registry.openshift-image-registry.svc:5000/grpcurl-pipelines/ubi8-grpcurl:latest
+            value: docker://$(tasks.cleaning-task.results.IMAGE_URL_CLEAN):latest
+#            value: docker://image-registry.openshift-image-registry.svc:5000/grpcurl-pipelines/ubi8-grpcurl:latest
           - name: srcTLSverify
             value: 'false'
           - name: destImageURL
