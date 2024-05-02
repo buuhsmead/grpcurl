@@ -94,7 +94,6 @@ spec:
             value: $(tasks.build-image.results.IMAGE_DIGEST)
         results:
           - name: image-and-sha
-            type: string
             description: The image and the sha as one
         taskSpec:
           workspaces:
