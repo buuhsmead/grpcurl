@@ -105,8 +105,9 @@ spec:
                 #!/usr/bin/env bash
                 set -e -o pipefail
                 id=$(params.IMAGE_URL)-$(params.IMAGE_DIGEST)
-                echo ${id} | tr -d "\n" | tee $(results.IMAGE_AND_SHA.path)
-                #printf 'IMAGE  %s:%s' $(params.IMAGE_URL) $(params.IMAGE_DIGEST) |  $(results.IMAGE_AND_SHA.path)
+                echo ${id} | tr -d "\n"
+                # | tee $(results.IMAGE_AND_SHA.path)
+                #printf 'IMAGE  %s:%s' $(params.IMAGE_URL) $(params.IMAGE_DIGEST) | tee $(results.IMAGE_AND_SHA.path)
                 # exit 0
 
   workspaces:
