@@ -105,7 +105,7 @@ spec:
               workingDir: $(workspaces.source.path)
               script: |
                 #!/usr/bin/env bash
-                printf 'IMAGE %s:%s' "$(params.IMAGE_URL)" "$(params.IMAGE_DIGEST)" | tee "$(results.IMAGE_AND_SHA.path)"
+                printf 'IMAGE %s:%s' "$(params.IMAGE_URL)" "$(params.IMAGE_DIGEST)"
                 # exit 0
 
   workspaces:
