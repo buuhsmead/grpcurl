@@ -1,6 +1,7 @@
 FROM registry.access.redhat.com/ubi8:latest
 
-ENV VERSION 1.8.7
+# ENV VERSION 1.8.7
+ENV VERSION 1.9.1
 
 ENV GRPCURL_DL "https://github.com/fullstorydev/grpcurl/releases/download/v${VERSION}/grpcurl_${VERSION}_linux_x86_64.tar.gz"
 

@@ -101,7 +101,7 @@ spec:
             - name: IMAGE_URL_CLEAN
               description: The image url is trimmed and no NL
           steps:
-            - name: noop-task
+            - name: clean-image-url
               image: registry.access.redhat.com/ubi9/ubi
               workingDir: $(workspaces.source.path)
               script: |
@@ -117,7 +117,6 @@ spec:
         params:
           - name: srcImageURL
             value: docker://$(tasks.cleaning-task.results.IMAGE_URL_CLEAN):latest
-#            value: docker://image-registry.openshift-image-registry.svc:5000/grpcurl-pipelines/ubi8-grpcurl:latest
           - name: srcTLSverify
             value: 'false'
           - name: destImageURL
