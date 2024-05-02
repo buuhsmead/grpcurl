@@ -74,7 +74,7 @@ spec:
           - name: DOCKERFILE
             value: "./Containerfile"
         workspaces:
-          - name: images-url
+          - name: source
             workspace: source
 
       # Customize this task if you like, or just do a taskRef
