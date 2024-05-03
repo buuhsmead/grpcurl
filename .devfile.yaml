@@ -1,0 +1,20 @@
+schemaVersion: 2.2.0
+metadata:
+  attributes:
+    metadata-name-field: generateName
+    metadata-name-original-value: grpcurl
+  name: grpcurl
+  namespace: user-1-devspaces
+attributes:
+  che-theia.eclipse.org/sidecar-policy: mergeImage
+projects:
+  - attributes: {}
+    name: grpcurl
+    git:
+      remotes:
+        origin: https://github.com/buuhsmead/grpcurl.git
+components:
+  - name: universal-developer-image
+    container:
+      image: registry.redhat.io/devspaces/udi-rhel8@sha256:022cc606ec53638f7079a638f0810fee3a1717b42426bcfa31c2ba2e78520c54
+commands: []
