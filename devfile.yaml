@@ -1,0 +1,8 @@
+schemaVersion: 2.2.2
+metadata:
+  name: grpcurl
+projects:
+  - name: grpcurl
+    git:
+      remotes:
+        origin: https://github.com/buuhsmead/grpcurl.git
